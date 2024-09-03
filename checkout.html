@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Checkout</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f4f4f4;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: #fff;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            border-radius: 5px;
+        }
+
+        h1 {
+            text-align: center;
+            margin-bottom: 20px;
+            color: #333;
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+        }
+
+        label {
+            margin-bottom: 8px;
+            font-weight: bold;
+        }
+
+        input, select {
+            padding: 10px;
+            margin-bottom: 15px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+
+        button {
+            background-color: #4caf50;
+            color: white;
+            padding: 10px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        button:hover {
+            background-color: #45a049;
+        }
+        img
+        {
+            margin: auto;
+            width: 200px;
+        }
+        * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: "Poppins", sans-serif;
+      }
+      .navbar {
+        display: flex;
+        justify-content: space-between;
+        background-color: rgb(25, 25, 50);
+        padding: 27px;
+      }
+      .navbar ul {
+        margin-top: 10px;
+      }
+      .navbar ul li {
+        display: inline-block;
+        margin-right: 20px;
+      }
+      a {
+        text-decoration: none;
+        color: white;
+      }
+    </style>
+</head>
+<body>
+    <div class="navbar">
+        <div class="logo">
+          <img src="logo.png" width="150px" />
+        </div>
+        <nav>
+          <ul>
+            <li><a href="">Home</a></li>
+            <li><a href="">Products</a></li>
+            <li><a href="">About</a></li>
+            <li><a href="">Contact</a></li>
+            <li><a href="">Account</a></li>
+            <li><a href="">Socials</a></li>
+            <ion-icon name="cart" class="shop"></ion-icon>
+            <ion-icon name="person"></ion-icon>
+          </ul>
+        </nav>
+      </div>
+<div class="container">
+    <h1>Checkout</h1>
+    <form action="your_server_side_processing.php" method="post">
+        <label for="fullName">Full Name:</label>
+        <input type="text" id="fullName" name="fullName" required>
+
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" required>
+
+        <label for="address">Address:</label>
+        <input type="text" id="address" name="address" required>
+
+        <label for="city">City:</label>
+        <input type="text" id="city" name="city" required>
+
+        <label for="country">Country:</label>
+        <select id="country" name="country" required>
+            <option value="usa">India</option>
+            <option value="usa">USA</option>
+            <option value="canada">Canada</option>
+            <!-- Add more options as needed -->
+        </select>
+        <img src="qr.jpeg" alt="">
+        <button type="submit">Place Order</button>
+    </form>
+</div>
+</body>
+</html>

@@ -1,0 +1,397 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>The Shrine</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@300&family=Dosis:wght@200&family=M+PLUS+Rounded+1c&family=Poppins&display=swap"
+      rel="stylesheet"
+    />
+    <script
+      type="module"
+      src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"
+    ></script>
+    <script
+      nomodule
+      src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"
+    ></script>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: "Poppins", sans-serif;
+      }
+      .navbar {
+        display: flex;
+        justify-content: space-between;
+        background-color: rgb(25, 25, 50);
+        padding: 27px;
+      }
+      .navbar ul {
+        margin-top: 10px;
+      }
+      .navbar ul li {
+        display: inline-block;
+        margin-right: 20px;
+      }
+      a {
+        text-decoration: none;
+        color: white;
+      }
+      main {
+        width: 65%;
+        height: 450px;
+        box-shadow: 0px 0px 3px;
+        margin: auto;
+        position: relative;
+        overflow: hidden;
+      }
+      .slide {
+        width: 100%;
+        height: 100%;
+        transition: 1s;
+        position: absolute;
+      }
+      .prev-btn,
+      .next-btn {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        font-size: 20px;
+        color: white;
+        background: none;
+        border: none;
+        cursor: pointer;
+        outline: none;
+        z-index: 1; /* Add this line to set the z-index */
+      }
+
+      .prev-btn {
+        left: 10px;
+      }
+
+      .next-btn {
+        right: 10px;
+      }
+      a {
+        cursor: pointer;
+      }
+      section .row {
+        background-color: rgb(27, 24, 24);
+        margin-top: 10px;
+      }
+      .row {
+        color: white;
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+      }
+      .para {
+        flex: 0.5;
+        margin-top: 40px;
+      }
+      .para button {
+        border: 3px solid rgb(199, 196, 196);
+        border-radius: 10px;
+        padding: 10px;
+        margin-top: 17px;
+        cursor: pointer;
+        background-color: rgb(25, 25, 50);
+        color: red;
+      }
+      .para p {
+        margin-top: 15px;
+      }
+      .para button:hover {
+        background-color: rgb(199, 196, 196);
+        color: rgb(25, 25, 50);
+        border: 3px solid red;
+      }
+      .categories {
+        text-align: center;
+        margin-top: 60px;
+      }
+      .row img {
+        width: 400px;
+        border: 2px solid black;
+        margin-top: 20px;
+      }
+      .categories .row .col-1 {
+        color: black;
+      }
+      .prod {
+        display: flex;
+        justify-content: space-around;
+      }
+      .smallcont img {
+        width: 280px;
+        height: 350px;
+        transition: transform 0.5s;
+      }
+      .smallcont img:hover {
+        transform: translateY(-10px);
+      }
+      .smallcont h1 {
+        text-align: center;
+        color: white;
+      }
+      .smallcont {
+        margin-top: 70px;
+        background-color: rgb(25, 25, 50);
+      }
+      .prod {
+        margin-top: 30px;
+      }
+      .col-4 {
+        color: white;
+        font-size: large;
+        text-align: center;
+      }
+      .col-4 h5 {
+        font-family: sans-serif;
+      }
+      .image img {
+        border: none;
+      }
+      .sun {
+        display: flex;
+        align-items: center;
+        justify-content: space-around;
+      }
+      .info h1 {
+        font-size: 40px;
+      }
+      .info p {
+        margin-top: 20px;
+      }
+      .exclusive {
+        background: radial-gradient(rgb(255, 255, 255), #ffd6d6);
+        margin-top: 100px;
+        margin-bottom: 60px;
+      }
+      footer {
+        background-color: black;
+        color: white;
+        padding: 40px;
+      }
+      .d {
+        display: flex;
+        justify-content: space-between;
+      }
+      ion-icon {
+        color: white;
+        font-size: 2rem;
+        margin-left: 10px;
+        cursor: pointer;
+      }
+      ion-icon:hover {
+        color: red;
+      }
+      .cart {
+        border: none;
+        outline: none;
+        background-color: red;
+        color: white;
+        font-family: Arial, Helvetica, sans-serif;
+        width: 200px;
+        margin: auto;
+        border-radius: 5px;
+        padding: 3px;
+        cursor: pointer;
+        font-weight: 400;
+      }
+      .list {
+        background-color: beige;
+        width: 40%;
+        height: 80%;
+        z-index: 1;
+        position: absolute;
+        left: 60%;
+        border: 3px solid black;
+        margin-top: 2px;
+        border-radius: 15px;
+        color: black;
+        overflow: scroll;
+      }
+      .list h1 {
+        color: white;
+        background-color: black;
+        text-align: center;
+      }
+      .hide {
+        display: none;
+      }
+      .crtimg {
+        width: 100%;
+        height: 200px;
+        display: flex;
+      }
+      .crtimg img {
+        width: 100px;
+        margin: 10px;
+        float: left;
+      }
+      .crtimg h4 {
+        margin-top: 10px;
+      }
+      .plusminus {
+        margin-left: 140px;
+        margin-top: 20px;
+      }
+      .box {
+        border: 1px solid black;
+        padding: 0px 14px;
+      }
+      .total {
+        margin-left: 100px;
+      }
+      .checkout {
+        position: absolute;
+        bottom: 10px; /* Adjust the distance from the bottom as needed */
+        left: 50%;
+        transform: translateX(-50%);
+        padding: 5px;
+        border-radius: 5px;
+        background-color: black;
+        color: white;
+        cursor: pointer;
+      }
+      .del
+      {
+        margin-left: 20px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="navbar">
+        <div class="logo">
+          <img src="logo.png" width="150px" />
+        </div>
+        <nav>
+          <ul>
+            <li><a href="">Home</a></li>
+            <li><a href="">Products</a></li>
+            <li><a href="">About</a></li>
+            <li><a href="">Contact</a></li>
+            <li><a href="">Account</a></li>
+            <li><a href="">Socials</a></li>
+            <ion-icon name="cart" class="shop"></ion-icon>
+            <ion-icon name="person"></ion-icon>
+          </ul>
+        </nav>
+      </div>
+      <div class="list hide">
+        <h1>My Cart</h1>
+        <div id="title">
+          <a href="checkout.html"><button class="checkout">Checkout</button></a>
+          <div id="total"></div>
+        </div>
+      </div>
+      <main>
+        <button class="prev-btn" onclick="prev()">&#10094;</button>
+        <a href=""><img src="an.jpg" alt="" class="slide" /></a>
+        <a href=""><img src="hod.jpg" alt="" class="slide" /></a>
+        <a href=""><img src="bat.jpg" alt="" class="slide" /></a>
+        <a href=""><img src="ven.jpg" alt="" class="slide" /></a>
+        <button class="next-btn" onclick="next()">&#10095;</button>
+      </main>
+      <section>
+        <div class="row">
+          <div class="para">
+            <h1>Unleash Your Inner Hero with Anime Elegance!</h1>
+            <p>
+              Welcome to The Shrine, where the worlds of anime and superheroes
+              collide in a fashion extravaganza like never before. Dive into a
+              universe where style meets power, and your wardrobe becomes a
+              canvas for expressing your love for iconic characters and epic
+              adventures.
+            </p>
+            <button>Explore</button>
+          </div>
+          <div class="image">
+            <img src="gojo.png" width="400px" height="400px" />
+          </div>
+        </div>
+      </section>
+      <div class="categories">
+        <h1>CATEGORIES</h1>
+        <div class="row">
+          <div class="col-1">
+            <img src="hoodie.jpg" alt="" />
+            <h2>Hoodies</h2>
+          </div>
+          <div class="col-1">
+            <img src="sneak.jpg" alt="" />
+            <h2>Sneakers</h2>
+          </div>
+          <div class="col-1">
+            <img src="tshirts.jpeg" alt="" />
+            <h2>T-shirts</h2>
+          </div>
+        </div>
+      </div>
+      <div class="smallcont">
+        <h1>Featured Products</h1>
+        <div class="prod">
+          <div class="col-4" id="i1">
+            <img src="aks.jpg" alt="" />
+            <h4>Akatsuki Sneaker</h4>
+            <h5>₹1999</h5>
+            <button class="cart" onclick="add(i1)">ADD TO CART</button>
+          </div>
+          <div class="col-4" id="i2">
+            <img src="spider.jpg" alt="" />
+            <h4>Morales T-shirt</h4>
+            <h5>₹499</h5>
+            <button class="cart" onclick="add(i2)">ADD TO CART</button>
+          </div>
+          <div class="col-4" id="i3">
+            <img src="shorts.jpg" alt="" />
+            <h4>Avengers Shorts</h4>
+            <h5>₹499</h5>
+            <button class="cart" onclick="add(i3)">ADD TO CART</button>
+          </div>
+          <div class="col-4" id="i4">
+            <img src="bshirt.jpg" alt="" />
+            <h4>Black Panther Shirt</h4>
+            <h5>₹999</h5>
+            <button class="cart" onclick="add(i4)">ADD TO CART</button>
+          </div>
+        </div>
+      </div>
+      <section class="exclusive">
+        <div class="sun">
+          <img src="sun.png" alt="" width="800px" height="800px" />
+          <div class="info">
+            <h1>Discover Style, Embrace Vision</h1>
+            <p>
+              Elevate your look with Circulr sunglasses - where fashion meets
+              function. Explore our curated collection of timeless designs and
+              cutting-edge styles. Join the Circulr Revolution.
+            </p>
+          </div>
+        </div>
+      </section>
+      <footer>
+        <div class="d">
+          <img src="logo.png" width="150px" />
+          <h4>© 2023 The Shrine</h4>
+        </div>
+      </footer>
+    </div>
+
+    <script>
+      var isAuthenticated = sessionStorage.getItem("authenticated");
+      if (!isAuthenticated || isAuthenticated !== "true") {
+        window.location.href = "login.html";
+      }
+    </script>
+
+    <script src="script.js"></script>
+  </body>
+</html>
