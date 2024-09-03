@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>The shrine</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@300&family=Dosis:wght@200&family=M+PLUS+Rounded+1c&family=Poppins&display=swap" rel="stylesheet">
+  <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+  <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+  <style>
+    body {
+      font-family: 'Poppins', sans-serif;
+    }
+
+    .login-container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+
+    .login-box {
+      background-color: rgb(40, 47, 54);
+      padding: 40px;
+      border-radius: 12px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    .login-box input {
+      width: 100%;
+      border: none;
+      outline: none;
+      background-color: rgb(21, 23, 25);
+      color: white;
+      padding: 10px;
+      margin-bottom: 20px;
+    }
+
+    .login-box button {
+      width: 100%;
+      background-color: white;
+      border: none;
+      outline: none;
+      border-radius: 2rem;
+      cursor: pointer;
+      color: rgb(73, 25, 120);
+      padding: 10px;
+      font-size: 1.8rem;
+      transition: background-color 0.3s, box-shadow 0.3s, color 0.3s;
+    }
+
+    .login-box button:hover {
+      color: white;
+      background-color: rgb(73, 25, 120);
+      box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+    }
+
+    h3 {
+      color: white;
+    }
+
+    button {
+      margin-top: 15px;
+    }
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: "Poppins", sans-serif;
+      }
+      .navbar {
+        display: flex;
+        justify-content: space-between;
+        background-color: rgb(25, 25, 50);
+        padding: 20px;
+      }
+      .navbar ul {
+        margin-top: 10px;
+      }
+      .navbar ul li {
+        display: inline-block;
+        margin-right: 20px;
+      }
+      a {
+        text-decoration: none;
+        color: white;
+      }
+      h3,h1
+      {
+        text-align: center;
+        color: white;
+      }
+      h3
+      {
+        margin-top: 20px;
+      }
+  </style>
+</head>
+<body>
+  <div class="navbar">
+    <div class="logo">
+      <img src="logo.png" width="150px" />
+    </div>
+    <nav>
+    </nav>
+  </div>
+  <div class="login-container">
+    <div class="login-box">
+      <h1 class="tit">Login</h1>
+      <form id="loginForm">
+        <input type="text" placeholder="Enter Username" id="UserInput">
+        <input type="password" placeholder="Enter password" id="passwordInput">
+        <button type="button" onclick="check()">Login</button>
+        <h3>Are You New?</h3>
+        <button type="button" onclick="register()">Register</button>
+      </form>
+    </div>
+  </div>
+  <script>
+    var enteredUN = '';
+    var enteredPassword = '';
+
+    function check() {
+      var UN = document.getElementById('UserInput').value;
+      var Password = document.getElementById('passwordInput').value;
+      if (enteredUN === UN && enteredPassword === Password) {
+        sessionStorage.setItem('authenticated', 'true');
+        window.location.href = 'web.html';
+      } else {
+        alert('Incorrect user credentials. Please try again.');
+      }
+    }
+
+    function register() {
+      var newUN = window.prompt("Enter a new Username");
+      var newPassword = window.prompt("Enter a new Password");
+
+      // Assuming you want to replace the existing login credentials
+      enteredUN = newUN;
+      enteredPassword = newPassword;
+
+      alert('Registration successful! You can now log in with your new credentials.');
+    }
+  </script>
+</body>
+</html>
